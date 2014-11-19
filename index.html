@@ -52,11 +52,19 @@
 
     <script>
     L.mapbox.accessToken = 'pk.eyJ1IjoiZ21hY2xlbm5hbiIsImEiOiJSaWVtd2lRIn0.ASYMZE2HhwkAw4Vt7SavEg';
+
+    var southWest = L.latLng(-0.48, -76.544),
+        northEast = L.latLng(-0.277, -76.25),
+        bounds = L.latLngBounds(southWest, northEast);
+
     var map = L.mapbox.map('map', 'gmaclennan.k8p70baj', {
         tileLayer: {
             format: 'jpg70'
         },
-        attributionControl: false
+        attributionControl: false,
+        maxBounds: bounds,
+        maxZoom: 20,
+        minZoom: 14
     });
     var hash = L.hash(map);
 
