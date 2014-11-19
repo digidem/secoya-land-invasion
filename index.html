@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Swipe between layers</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+    <link href='base.css' rel='stylesheet' />
+    <style>
+    .range {
+        position: absolute;
+        width: 100%;
+    }
+    .leaflet-top .leaflet-control-zoom {
+        top: 20px;
+    }
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    #divider {
+        position: absolute;
+        top: 16px;
+        bottom: 0;
+        left: 500px;
+        width: 4px;
+        background-color: #fff;
+        opacity: 0.7;
+        pointer-events: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div id='map'></div>
+    <input id='range' class='range' type='range' min='0' max='1.0' step='any' />
+    <div id='divider'></div>
+
+    <script>
+    L.mapbox.accessToken = 'pk.eyJ1IjoiZ21hY2xlbm5hbiIsImEiOiJSaWVtd2lRIn0.ASYMZE2HhwkAw4Vt7SavEg';
+    var map = L.mapbox.map('map', 'gmaclennan.k8p70baj');
+    var hash = L.hash(map);
+
+    var overlay = L.mapbox.tileLayer('gmaclennan.0794f5ed').addTo(map);
+    var range = document.getElementById('range');
+    var divider = document.getElementById('divider');
+
+    function clip() {
+        var nw = map.containerPointToLayerPoint([0, 0]),
+            se = map.containerPointToLayerPoint(map.getSize()),
+            clipX = nw.x + (se.x - nw.x) * range.value + (0.5 - range.value) * 30;
+
+        if (L.Browser.webkit3d) {
+            overlay.getContainer().style.transform = "translate3d(0,0,0)";
+        }
+        divider.style.left = map.getSize().x * range.value - 2 + (0.5 - range.value) * 30 + 'px';
+        overlay.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
+    }
+
+    range['oninput' in range ? 'oninput' : 'onchange'] = clip;
+    map.on('move', clip);
+    map.setView([-0.39477, -76.40277], 17);
+
+    clip();
+    </script>
+</body>
+
+</html>
