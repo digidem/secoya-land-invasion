@@ -44,10 +44,10 @@
 
     <script>
     L.mapbox.accessToken = 'pk.eyJ1IjoiZ21hY2xlbm5hbiIsImEiOiJSaWVtd2lRIn0.ASYMZE2HhwkAw4Vt7SavEg';
-    var map = L.mapbox.map('map', 'gmaclennan.k8p70baj');
+    var map = L.mapbox.map('map', 'gmaclennan.k8p70baj', { tileLayer: {format: 'jpg70'} });
     var hash = L.hash(map);
 
-    var overlay = L.mapbox.tileLayer('gmaclennan.0794f5ed').addTo(map);
+    var overlay = L.mapbox.tileLayer('gmaclennan.0794f5ed').setFormat('png256').addTo(map);
     var range = document.getElementById('range');
     var divider = document.getElementById('divider');
 
