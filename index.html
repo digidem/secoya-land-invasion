@@ -9,8 +9,12 @@
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
     <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
-    <link href='base.css' rel='stylesheet' />
+    <link href='range-input.css' rel='stylesheet' />
     <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
     .range {
         position: absolute;
         width: 100%;
@@ -34,11 +38,15 @@
         opacity: 0.7;
         pointer-events: none;
     }
+    *,
+    *:after,
+    *:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
     @media only screen and (min-device-width: 320px) and (max-device-width: 1000px) {
-        #divider {
-            top: 30px;
-        }
-        .leaflet-top .leaflet-control-zoom {
+        #divider, .leaflet-top .leaflet-control-zoom {
             top: 30px;
         }
     }
