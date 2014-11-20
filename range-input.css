@@ -7,13 +7,14 @@ input[type=range], input[type=range]::-webkit-slider-thumb {
 input[type=range] {
     display: inline-block!important;
     vertical-align: middle;
-    height: 16px;
-    padding: 0 2px;
-    border: 2px solid transparent;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
     background: rgba(0, 0, 0, 0.25);
     min-width: 100px;
-    overflow: hidden;
     cursor: pointer;
+    pointer-events: none;
 }
 input[type=range]::-ms-fill-upper {
     background: transparent;
@@ -36,34 +37,47 @@ input[type=range]::-ms-tooltip {
  * on their own so dont group them */
 
 input[type=range]::-webkit-slider-thumb {
-    background: rgba(255, 255, 255, 0.75);
-    height: 16px;
-    width: 20px;
-    border-radius: 3px;
+    background: #fff;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
     cursor: ew-resize;
-    box-shadow: rgba(255, 255, 255, 0.25) -1200px 0 0 1200px;
+    pointer-events: auto;
+    border: 1px solid #ddd;
+    background-image: url(icons@2x.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
 }
 input[type=range]::-ms-thumb {
     margin: 0;
     padding: 0;
-    border: 0;
-    background: rgba(255, 255, 255, 0.75);
-    height: 16px;
-    width: 20px;
-    border-radius: 3px;
+    background: #fff;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
     cursor: ew-resize;
-    box-shadow: rgba(255, 255, 255, 0.25) -1200px 0 0 1200px;
+    pointer-events: auto;
+    border: 1px solid #ddd;
+    background-image: url(icons@2x.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
 }
 input[type=range]::-moz-range-thumb {
-    margin: 0;
     padding: 0;
-    border: 0;
-    background: rgba(255, 255, 255, 0.75);
-    height: 16px;
-    width: 20px;
-    border-radius: 3px;
+    right: 0    ;
+    background: #fff;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
     cursor: ew-resize;
-    box-shadow: rgba(255, 255, 255, 0.25) -1200px 0 0 1200px;
+    pointer-events: auto;
+    border: 1px solid #ddd;
+    background-image: url(icons@2x.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
 }
 input[type=range]:disabled::-moz-range-thumb {
     cursor: default;
@@ -77,17 +91,10 @@ input[type=range]:disabled::-webkit-slider-thumb {
 input[type=range]:disabled {
     cursor: default;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 1000px) {
-    input[type=range] {
-        height: 30px;
-    }
-    input[type=range]::-webkit-slider-thumb {
-        height: 30px;
-    }
-    input[type=range]::-ms-thumb {
-        height: 30px;
-    }
-    input[type=range]::-moz-range-thumb {
-        height: 30px;
-    }
+input[type=range]:focus {
+    outline: none!important;
 }
+input[type=range]::-moz-focus-outer {
+    border: 0;
+}
+
