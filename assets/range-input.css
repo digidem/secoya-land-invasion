@@ -44,7 +44,7 @@ input[type=range]::-webkit-slider-thumb {
     cursor: ew-resize;
     pointer-events: auto;
     border: 1px solid #ddd;
-    background-image: url(icons@2x.png);
+    background-image: url(images/icons@2x.png);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: 40px 40px;
@@ -59,7 +59,7 @@ input[type=range]::-ms-thumb {
     cursor: ew-resize;
     pointer-events: auto;
     border: 1px solid #ddd;
-    background-image: url(icons@2x.png);
+    background-image: url(images/icons@2x.png);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: 40px 40px;
@@ -74,7 +74,7 @@ input[type=range]::-moz-range-thumb {
     cursor: ew-resize;
     pointer-events: auto;
     border: 1px solid #ddd;
-    background-image: url(icons@2x.png);
+    background-image: url(images/icons@2x.png);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: 40px 40px;
@@ -97,4 +97,3 @@ input[type=range]:focus {
 input[type=range]::-moz-focus-outer {
     border: 0;
 }
-
